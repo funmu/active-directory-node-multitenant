@@ -1,0 +1,6 @@
+{
+    "authority" :"https://login.windows.net/common",
+    "redirectUri": "urn:ietf:wg:oauth:2.0:oob",
+   "clientID":"REPLACE WITH Client ID for the AuthenticatedCaller1",
+   "resourceAppIdURI" : "REPLACE WITH AppID URI for AuthenticatedAPI"
+}
