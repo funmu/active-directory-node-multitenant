@@ -1,21 +1,23 @@
 ---
 services: API-with-active-directory-protected-access
-platforms: nodejs
+platforms: nodejs azure azureAD
 author: muralik
 ---
 
 # Simple Sample for use of Azure AD to protect web APIs
 
-This Node.js server will give you a quick and easy sample for setting up REST API service using OAuth2 protocol. Then this service is integrated with Azure Active Directory for API protection. The sample server included in the download are designed to run on any platform. The APIs themselves are kept very simple so we can illustrate the work requried to set up OAuth2 based Azure AD authenticated calls from clients like Powershell.
+This Node.js server will give you a quick and easy sample for setting up REST API service using OAuth2 protocol. This service uses Azure Active Directory for API protection. We do this using the appropriate AzureAD Application ID for bearer token based authetication. 
 
+The sample server included in the download are designed to run on any platform. The APIs themselves are kept very simple so we can illustrate the work requried to set up OAuth2 based Azure AD authenticated calls from clients like Powershell.
 
 ## Solution Overview
 
 There are three major components to the solution including a way to test how the APIs work
 
 ### 1. Configuration
-A variety of simple configuration steps are required on the [Azure Management Portal](http://manage.windowsazure.com). 
-These steps are detaliled in the [Configuration Setup](config/).
+Configuration is the MOST important component for making sure all works well.  These steps are detaliled in the [Configuration Setup](config/).
+
+Several steps are configurations done using the [Azure Management Portal](http://manage.windowsazure.com). 
 
 ### 2. AuthenticatedApi
 This is the primary node module that exposes the REST APIs. This REST API server is built using Restify with the following features:
@@ -61,7 +63,11 @@ If all is well, you will be prompted to login through a special window. Once log
 
 ## Acknowledgements
 
-I read through several Azure AD samples to create a simplified version. Some of these samples used mongodb for data store which has its own configuration details. To keep things simple, I trimmed the sample to be trivial one. I thank many folks in Azure Active Directory who helped me with the analysis and simplification of the samples. Working with such great partners in the open source community clearly illustrates what open collaboration can accomplish. Thank you!
+Many thanks are due to Brandon Werner <brandwe@microsoft.com> and Danny Strockis <dastrock@microsoft.com> for helping me with understanding OAuth set up with Azure AD.
+
+I read through several Azure AD samples to create a simplified version. Some of these samples used mongodb for data store which has its own configuration details. 
+
+To keep things simple, I trimmed the sample to be trivial one. I thank many folks in Azure Active Directory who helped me with the analysis and simplification of the samples. Working with such great partners in the open source community clearly illustrates what open collaboration can accomplish. Thank you!
 
 - [Azure AD protected Web API sample](https://github.com/Azure-Samples/active-directory-node-webapi) - sample app with REST + mongoDB + Azure AD authentication
 - [Restify](http://mcavage.me/node-restify/) - Restify is a node.js module built specifically to enable you to build correct REST web services. ``` node-restify```
@@ -70,3 +76,5 @@ I read through several Azure AD samples to create a simplified version. Some of 
 - [http-bearer-strategy](https://github.com/jaredhanson/passport-http-bearer) - HTTP Bearer authentication strategy for Passport and Node.js.
 - [JSON Web Token](http://jwt.io/) to look at the access token
 
+## Contributors
+ * Murali Krishnan (muralirk@gmail.com)
